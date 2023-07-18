@@ -9,12 +9,22 @@ const isValid = (username) => {
   // Check if the username is valid
   // Write code to perform any desired validation logic
   // Return true or false based on the validation result
+  const validUsernames = ["user1", "user2", "user3"];
+  return validUsernames.includes(username);
 };
 
 const authenticatedUser = (username, password) => {
   // Check if the username and password match the ones in the records
   // Write code to perform the desired authentication logic
   // Return true or false based on the authentication result
+  const registeredUsers = [
+    { username: "user1", password: "123456" },
+    { username: "user2", password: "password2" },
+    { username: "user3", password: "password3" }
+  ];
+  
+  const user = registeredUsers.find((user) => user.username === username && user.password === password);
+  return !!user;
 };
 
 regd_users.post("/login", (req, res) => {
